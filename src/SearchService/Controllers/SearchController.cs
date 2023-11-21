@@ -36,7 +36,7 @@ public class SearchController:ControllerBase
             query.Match(x=>x.Winner==searchParams.Winner);
         }
         query.PageNumber(searchParams.PageNumber);
-        query.PageSize(searchParams.PageNumber);
+        query.PageSize(searchParams.PageSize);
         var result=await query.ExecuteAsync();
         return Ok(new{
             results=result.Results,
