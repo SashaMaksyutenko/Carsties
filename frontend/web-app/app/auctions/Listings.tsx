@@ -6,7 +6,6 @@ import AppPagination from '../components/AppPagination';
 import { getData } from '../actions/auctionActions';
 import Filters from './Filters';
 import { useParamsStore } from '@/hooks/useParamsStore';
-import { shallow } from 'zustand/shallow';
 import qs from 'query-string';
 import EmptyFilter from '../components/EmptyFilter';
 export default function Listings() {
@@ -19,7 +18,7 @@ export default function Listings() {
         filterBy: state.filterBy,
         seller: state.seller,
         winner: state.winner
-    }), shallow)
+    }))
     const setParams = useParamsStore(state => state.setParams);
     const url = qs.stringifyUrl({ url: '', query: params })
     function setPageNumber(pageNumber: number) {
