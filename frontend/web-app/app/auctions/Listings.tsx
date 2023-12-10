@@ -29,7 +29,7 @@ export default function Listings() {
             setData(data);
         })
     }, [url])
-    if (!data) return <h3>Loading...</h3>
+    if (!data) return <div>Loading...</div>
     return (
         <>
             <Filters />
