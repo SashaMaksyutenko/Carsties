@@ -2,7 +2,7 @@
 using MassTransit;
 using MongoDB.Entities;
 using SearchService.Models;
-namespace SearchService;
+namespace SearchService.Consumers;
 public class AuctionFinishedConsumer : IConsumer<AuctionFinished>
 {
     public async Task Consume(ConsumeContext<AuctionFinished> context)

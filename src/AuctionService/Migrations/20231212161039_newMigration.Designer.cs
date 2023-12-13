@@ -9,11 +9,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace AuctionService.Data.Migrations
+namespace AuctionService.Migrations
 {
     [DbContext(typeof(AuctionDbContext))]
-    [Migration("20231103140738_Outbox")]
-    partial class Outbox
+    [Migration("20231212161039_newMigration")]
+    partial class newMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -198,10 +198,6 @@ namespace AuctionService.Data.Migrations
 
                     b.Property<Guid>("MessageId")
                         .HasColumnType("uuid");
-
-                    b.Property<string>("MessageType")
-                        .IsRequired()
-                        .HasColumnType("text");
 
                     b.Property<Guid?>("OutboxId")
                         .HasColumnType("uuid");

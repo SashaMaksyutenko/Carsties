@@ -8,7 +8,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace AuctionService.Data.Migrations
+namespace AuctionService.Migrations
 {
     [DbContext(typeof(AuctionDbContext))]
     partial class AuctionDbContextModelSnapshot : ModelSnapshot
@@ -195,10 +195,6 @@ namespace AuctionService.Data.Migrations
 
                     b.Property<Guid>("MessageId")
                         .HasColumnType("uuid");
-
-                    b.Property<string>("MessageType")
-                        .IsRequired()
-                        .HasColumnType("text");
 
                     b.Property<Guid?>("OutboxId")
                         .HasColumnType("uuid");
