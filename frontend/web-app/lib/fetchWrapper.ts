@@ -1,4 +1,5 @@
 import { getTokenWorkaround } from "@/app/actions/authActions";
+import { json } from "node:stream/consumers";
 
 const baseUrl='http://localhost:6001/'
 async function get(url:string){
@@ -45,13 +46,19 @@ async function getHeaders(){
 }
 async function handleResponse(response: any) {
     const text=await response.text();
-    const data=text && JSON.parse(text);
+    //const data=text && JSON.parse(text);
+    let data;
+    try {
+        JSON.parse(text);
+    } catch (error) {
+        data=text;
+    }
     if (response.ok){
         return data || response.statusText;
     }else{
         const error={
             status:response.status,
-            message:response.statusText
+            message: typeof data === 'string' ? data : response.statusText
         }
         return {error}
     }
