@@ -14,7 +14,6 @@ const initialState:State={
     auctions:[],
     pageCount:0,
     totalCount:0
-
 }
 export const useAuctionStore=create<State & Actions>((set)=>({
     ...initialState,

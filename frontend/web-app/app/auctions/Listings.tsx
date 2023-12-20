@@ -35,6 +35,8 @@ export default function Listings() {
         getData(url).then(data => {
             setData(data);
             setLoading(false);
+            console.log(data);
+
         })
     }, [setData, url])
     if (loading) return <div>Loading...</div>
@@ -48,6 +50,7 @@ export default function Listings() {
                     <div className='grid grid-cols-4 gap-6'>
                         {data.auctions.map(auction => (
                             <AuctionCard auction={auction} key={auction.id} />
+                            
                         ))}
                     </div>
                     <div className='flex justify-center mt-4'>
