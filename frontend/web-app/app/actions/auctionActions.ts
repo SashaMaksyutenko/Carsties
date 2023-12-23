@@ -2,7 +2,7 @@
 import { Auction, Bid, PagedResult } from "@/types";
 import { getTokenWorkaround } from "./authActions";
 import { FieldValues } from "react-hook-form";
-import { fetchWrapper } from "@/lib/fetchWrapper";
+import { fetchWrapper } from "@/app/lib/fetchWrapper";
 import { revalidatePath } from "next/cache";
 export async function getData(query:string):Promise<PagedResult<Auction>>{
    return await fetchWrapper.get(`search${query}`)
