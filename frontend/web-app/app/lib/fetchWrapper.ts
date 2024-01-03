@@ -49,7 +49,7 @@ async function handleResponse(response: any) {
     //const data=text && JSON.parse(text);
     let data;
     try {
-        JSON.parse(text);
+        data = JSON.parse(text);
     } catch (error) {
         data=text;
     }
